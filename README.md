@@ -4,4 +4,8 @@ A lot of folks like to build AI workflows using [LangGraph](https://github.com/l
 
 Few things I learned:
 
-1.
+- It is best practice to define the tools in the `package.json` but you don't really have to if you are just try to interact with the LLM.
+- The vscode message API only have two roles `user` and `assistant`. So `system` messages should be provided inside the `user` message.
+- The `temperature` or `topP` settings does not seems to work with the [chatRequest]([chatParticipant](https://code.visualstudio.com/api/references/vscode-api#LanguageModelAccess.chatRequest)) API.
+- [vscode-chat-extension](https://github.com/microsoft/vscode-chat-extension-utils) is a good reference to understand how the vscode LLM API works. And [chatParticipantHandler](https://github.com/microsoft/vscode-chat-extension-utils/blob/main/src/chatParticipantHandler.ts#L238) is actually simple agentic loop to work with tools.
+- [vscode-prompt-tsx](https://github.com/microsoft/vscode-prompt-tsx) has prompt renderer to help organize the prompt more efficiently using tsx templates.
